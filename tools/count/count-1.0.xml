@@ -1,0 +1,70 @@
+<tool id="count" name="Count" version="0.1" force_history_refresh="True">
+    <description>- prepare HGDP data for SmileFinder</description>
+    <command interpreter="python">
+        count.py $popfile $output --tool_dir=$__tool_directory__
+    </command>
+    <inputs>
+        <param name="popfile"
+               type="data"
+               format="Table"
+               label="Population information about individuals"/>
+    </inputs>
+    <outputs>
+        <data name="output"
+              format="tabular"
+              label="popstats">
+        </data>
+    </outputs>
+    <!--<tests>-->
+    <!--<test>-->
+    <!--</test>-->
+    <!--</tests>-->
+    <help>
+**What it does**
+
+Calculates heterozygosity and Fst for loci in data from the Human Genome Diversity Project (HGDP_).
+
+.. _HGDP: http://www.hagsc.org/hgdp/index.html
+
+The Count tool combines data from HGDP_FinalReport_Forward.txt and HGDP_Map.txt (both of which are available from http://www.hagsc.org/hgdp/files.html). This information is filtered for two sets of individuals to represent two populations which are defined in the input for this Count tool.
+
+-----
+
+The output of the Count tool is a file containing the following columns:
+
+1. Name of the marker
+2. Chromosome position
+3. Major Allele in the first population frequency of the major allele
+4. Number of Individuals in the first population
+5. Expected Heterozygosity in the first population
+6. Observed Heterozygosity in the first population
+7. Major Allele in the second Population
+8. Frequency of the Major Allele, Number of Individuals in the second population
+9. Expected Heterozygosity in the second population
+10. Observed Heterozygosity in the second population
+11. Fst between the two populations
+
+This output is used as input for the SmileFinder tool.
+
+.. class:: warningmark
+
+Please note that the markers must be sorted in order according to their chromosome and position in order for SmileFinder to work properly.
+
+-----
+
+If you wish to create your own input file for SmileFinder without using Count,
+the fields required are:
+
+1. Name of the marker
+2. Chromosome
+3. Position
+4. Observed Heterozygosity in both populations
+5. Fst
+
+The other fields are not required and can be left empty.
+
+.. class:: warningmark
+
+As noted above, your markers must be sorted in order according to their chromosome and position prior to your data being analysed by SmileFinder.
+    </help>
+</tool>

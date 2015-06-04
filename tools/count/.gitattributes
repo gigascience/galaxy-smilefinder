@@ -1,0 +1,1 @@
+HGDP_* filter=lfs diff=lfs merge=lfs -crlf
