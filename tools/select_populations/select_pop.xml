@@ -1,0 +1,173 @@
+<tool id="select_pop" name="Select populations" version="0.1"
+      force_history_refresh="True">
+    <description> for analysis</description>
+    <command interpreter="python">
+        select_pop.py
+
+        --tool_dir=$__tool_directory__
+
+        ## Reference source
+        --selection=$populations.populations_select
+        #if $populations.populations_select == "specify":
+          ## Input
+          --population1=$populations.population1
+          --population2=$populations.population2
+        #else:
+          ## Input
+          --aggregate=$populations.aggregate
+        #end if
+
+        ## Output
+        --pops=$pops
+    </command>
+    <inputs>
+        <conditional name="populations">
+            <param name="populations_select" type="select" label="Select or aggregate individuals for population analysis">
+                <option value="specify">Specify</option>
+                <option value="aggregate">Aggregate</option>
+            </param>
+            <when value="specify">
+                <param name="population1"
+                       type="select"
+                       label="Select first population for analysis"
+                       value="BiakaPygmy">
+                    <option value="BiakaPygmy">BiakaPygmy</option>
+                    <option value="MbutiPygmy">MbutiPygmy</option>
+                    <option value="Brahui">Brahui</option>
+                    <option value="Balochi">Balochi</option>
+                    <option value="Hazara">Hazara</option>
+                    <option value="Makrani">Makrani</option>
+                    <option value="Sindhi">Sindhi</option>
+                    <option value="Pathan">Pathan</option>
+                    <option value="Kalash">Kalash</option>
+                    <option value="Burusho">Burusho</option>
+                    <option value="Melanesian">Melanesian</option>
+                    <option value="French">French</option>
+                    <option value="Papuan">Papuan</option>
+                    <option value="Druze">Druze</option>
+                    <option value="Bedouin">Bedouin</option>
+                    <option value="Sardinian">Sardinian</option>
+                    <option value="Palestinian">Palestinian</option>
+                    <option value="Colombian">Colombian</option>
+                    <option value="Cambodian">Cambodian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Han">Han</option>
+                    <option value="Orcadian">Orcadian</option>
+                    <option value="Surui">Surui</option>
+                    <option value="Maya">Maya</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Mandenka">Mandenka</option>
+                    <option value="Yoruba">Yoruba</option>
+                    <option value="Yakut">Yakut</option>
+                    <option value="San">San</option>
+                    <option value="BantuSouthAfrica">BantuSouthAfrica</option>
+                    <option value="Karitiana">Karitiana</option>
+                    <option value="Pima">Pima</option>
+                    <option value="Tujia">Tujia</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Tuscan">Tuscan</option>
+                    <option value="Yi">Yi</option>
+                    <option value="Miao">Miao</option>
+                    <option value="Oroqen">Oroqen</option>
+                    <option value="Daur">Daur</option>
+                    <option value="Mongola">Mongola</option>
+                    <option value="Hezhen">Hezhen</option>
+                    <option value="Xibo">Xibo</option>
+                    <option value="Mozabite">Mozabite</option>
+                    <option value="Han.NChina">Han.NChina</option>
+                    <option value="Uygur">Uygur</option>
+                    <option value="Dai">Dai</option>
+                    <option value="Lahu">Lahu</option>
+                    <option value="She">She</option>
+                    <option value="Naxi">Naxi</option>
+                    <option value="Basque">Basque</option>
+                    <option value="Adygei">Adygei</option>
+                    <option value="BantuKenya">BantuKenya</option>
+                </param>
+                <param name="population2"
+                       type="select"
+                       label="Select second population for analysis"
+                       value="MbutiPygmy">
+                    <option value="MbutiPygmy">MbutiPygmy</option>
+                    <option value="Brahui">Brahui</option>
+                    <option value="Balochi">Balochi</option>
+                    <option value="Hazara">Hazara</option>
+                    <option value="Makrani">Makrani</option>
+                    <option value="Sindhi">Sindhi</option>
+                    <option value="Pathan">Pathan</option>
+                    <option value="Kalash">Kalash</option>
+                    <option value="Burusho">Burusho</option>
+                    <option value="BiakaPygmy">BiakaPygmy</option>
+                    <option value="Melanesian">Melanesian</option>
+                    <option value="French">French</option>
+                    <option value="Papuan">Papuan</option>
+                    <option value="Druze">Druze</option>
+                    <option value="Bedouin">Bedouin</option>
+                    <option value="Sardinian">Sardinian</option>
+                    <option value="Palestinian">Palestinian</option>
+                    <option value="Colombian">Colombian</option>
+                    <option value="Cambodian">Cambodian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Han">Han</option>
+                    <option value="Orcadian">Orcadian</option>
+                    <option value="Surui">Surui</option>
+                    <option value="Maya">Maya</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Mandenka">Mandenka</option>
+                    <option value="Yoruba">Yoruba</option>
+                    <option value="Yakut">Yakut</option>
+                    <option value="San">San</option>
+                    <option value="BantuSouthAfrica">BantuSouthAfrica</option>
+                    <option value="Karitiana">Karitiana</option>
+                    <option value="Pima">Pima</option>
+                    <option value="Tujia">Tujia</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Tuscan">Tuscan</option>
+                    <option value="Yi">Yi</option>
+                    <option value="Miao">Miao</option>
+                    <option value="Oroqen">Oroqen</option>
+                    <option value="Daur">Daur</option>
+                    <option value="Mongola">Mongola</option>
+                    <option value="Hezhen">Hezhen</option>
+                    <option value="Xibo">Xibo</option>
+                    <option value="Mozabite">Mozabite</option>
+                    <option value="Han.NChina">Han.NChina</option>
+                    <option value="Uygur">Uygur</option>
+                    <option value="Dai">Dai</option>
+                    <option value="Lahu">Lahu</option>
+                    <option value="She">She</option>
+                    <option value="Naxi">Naxi</option>
+                    <option value="Basque">Basque</option>
+                    <option value="Adygei">Adygei</option>
+                    <option value="BantuKenya">BantuKenya</option>
+                </param>
+            </when>
+            <when value="aggregate">
+                <param name="aggregate" type="text" area="true" size="5x40"
+                       label="Population individuals to include">
+                    <sanitizer>
+                        <valid initial="string.printable"/>
+                    </sanitizer>
+                </param>
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        <data name="pops"
+              format="tabular"
+              label="populations">
+        </data>
+    </outputs>
+    <!--<tests>-->
+    <!--<test>-->
+    <!--</test>-->
+    <!--</tests>-->
+    <help>
+**What it does**
+
+This tool selects two populations of individuals to be compared by SmileFinder. More than two populations can be selected for analysis using the "aggregate" option. In this case, the name of the populations should be given as a comma-separated list.
+
+The output of this tools is a tab-delimited text file containing HGDP identifiers for individuals belonging to the selected populations.
+    </help>
+</tool>
+
