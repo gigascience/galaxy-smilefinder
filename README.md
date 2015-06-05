@@ -5,6 +5,9 @@ This repository houses the Galaxy wrappers for the tools described by
 
 The [GigaToolShed](http://gigatoolshed.net) is used to host these Galaxy tools.
 
+To clone this repository, [Git Large File Storage](https://git-lfs.github.com/)
+has to be installed and made available on your path.
+
 ## Folder structure
 
 There is one directory for each tool which has been wrapped for use in Galaxy
