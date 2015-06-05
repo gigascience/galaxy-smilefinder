@@ -14,7 +14,7 @@
                         <repository changeset_revision="" name="package_atlas_3_10" owner="peterli" toolshed="https://gigatoolshed.net">
                             <package name="atlas" version="3.10" />
                         </repository>
-                        <repository changeset_revision="" name="package_numpy_1_7" owner="peterli" toolshed="https://gigatoolshed.net">
+                        <repository changeset_revision="" name="package_numpy_1_7_1" owner="peterli" toolshed="https://gigatoolshed.net">
                             <package name="numpy" version="1.7.1" />
                         </repository>
                     </action>
