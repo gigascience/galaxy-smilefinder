@@ -1,6 +1,9 @@
 <tool id="smilefinder" name="SmileFinder" version="0.1"
       force_history_refresh="True">
     <description>- detect signatures of positive selection in genomes</description>
+    <requirements>
+        <requirement type="package" version="1.7.1">numpy</requirement>
+    </requirements>
     <command interpreter="python">
         smilefinder.py $heterozygosity $report $SmileFinderCompleteReport $windows $shortest_window $resampling $sensitivity
     </command>
