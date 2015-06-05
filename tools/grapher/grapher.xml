@@ -1,0 +1,46 @@
+<tool id="grapher" name="grapher" version="0.1" force_history_refresh="True">
+    <description>- displays results from Smilefinder</description>
+    <command interpreter="python">
+        grapher-cli.py $infile $genename $chromosome $strand $gene_start $gene_end $graph
+    </command>
+    <inputs>
+        <param name="infile"
+               type="data"
+               format="Table"
+               label="Sorted output from Count tool"/>
+        <param name="genename"
+               type="text"
+               label="Name of gene"/>
+        <param name="chromosome"
+               type="text"
+               label="Chromosome number"/>
+        <param name="strand"
+               type="select"
+               value="+"
+               label="Chromosome strand">
+            <option value="+">+</option>
+            <option value="-">-</option>
+        </param>
+        <param name="gene_start"
+               type="text"
+               label="Start location of gene"/>
+        <param name="gene_end"
+               type="text"
+               label="End location of gene"/>
+    </inputs>
+    <outputs>
+        <data name="graph"
+              format="png"
+              label="graph">
+        </data>
+    </outputs>
+    <!--<tests>-->
+    <!--<test>-->
+    <!--</test>-->
+    <!--</tests>-->
+    <help>
+**What it does**
+
+Generates a graph to display the results from Smilefinder associated with given gene.
+    </help>
+</tool>
