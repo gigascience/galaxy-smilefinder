@@ -5,7 +5,7 @@
         <requirement type="package" version="1.2">matplotlib</requirement>
     </requirements>
     <command interpreter="python">
-        grapher-cli.py $infile $genename $chromosome $strand $gene_start $gene_end $graph
+        grapher.py $infile $genename $chromosome $strand $gene_start $gene_end $graph
     </command>
     <inputs>
         <param name="infile"
