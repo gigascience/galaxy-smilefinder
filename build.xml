@@ -22,6 +22,56 @@
         <mkdir dir="${build.dir}"/>
     </target>
 
+    <target name="package_tiff_4_0_3" depends="build">
+        <mkdir dir="${build.dir}/package_tiff_4_0_3"/>
+        <copy todir="${build.dir}/package_tiff_4_0_3">
+            <fileset dir="${dependencies.dir}/package_tiff_4_0_3"/>
+        </copy>
+        <tar destfile="${build.dir}/package_tiff_4_0_3.tar" basedir="${build.dir}/package_tiff_4_0_3"/>
+        <gzip destfile="${build.dir}/package_tiff_4_0_3.tar.gz" src="${build.dir}/package_tiff_4_0_3.tar"/>
+        <delete file="${build.dir}/package_tiff_4_0_3.tar"/>
+    </target>
+
+    <target name="package_zlib_1_2_8" depends="build">
+        <mkdir dir="${build.dir}/package_zlib_1_2_8"/>
+        <copy todir="${build.dir}/package_zlib_1_2_8">
+            <fileset dir="${dependencies.dir}/package_zlib_1_2_8"/>
+        </copy>
+        <tar destfile="${build.dir}/package_zlib_1_2_8.tar" basedir="${build.dir}/package_zlib_1_2_8"/>
+        <gzip destfile="${build.dir}/package_zlib_1_2_8.tar.gz" src="${build.dir}/package_zlib_1_2_8.tar"/>
+        <delete file="${build.dir}/package_zlib_1_2_8.tar"/>
+    </target>
+
+    <target name="package_imaging_1_1_7" depends="build">
+        <mkdir dir="${build.dir}/package_imaging_1_1_7"/>
+        <copy todir="${build.dir}/package_imaging_1_1_7">
+            <fileset dir="${dependencies.dir}/package_imaging_1_1_7"/>
+        </copy>
+        <tar destfile="${build.dir}/package_imaging_1_1_7.tar" basedir="${build.dir}/package_imaging_1_1_7"/>
+        <gzip destfile="${build.dir}/package_imaging_1_1_7.tar.gz" src="${build.dir}/package_imaging_1_1_7.tar"/>
+        <delete file="${build.dir}/package_imaging_1_1_7.tar"/>
+    </target>
+
+    <target name="package_freetype_2_4" depends="build">
+        <mkdir dir="${build.dir}/package_freetype_2_4"/>
+        <copy todir="${build.dir}/package_freetype_2_4">
+            <fileset dir="${dependencies.dir}/package_freetype_2_4"/>
+        </copy>
+        <tar destfile="${build.dir}/package_freetype_2_4.tar" basedir="${build.dir}/package_freetype_2_4"/>
+        <gzip destfile="${build.dir}/package_freetype_2_4.tar.gz" src="${build.dir}/package_freetype_2_4.tar"/>
+        <delete file="${build.dir}/package_freetype_2_4.tar"/>
+    </target>
+
+    <target name="package_libpng_1_6_7" depends="build">
+        <mkdir dir="${build.dir}/package_libpng_1_6_7"/>
+        <copy todir="${build.dir}/package_libpng_1_6_7">
+            <fileset dir="${dependencies.dir}/package_libpng_1_6_7"/>
+        </copy>
+        <tar destfile="${build.dir}/package_libpng_1_6_7.tar" basedir="${build.dir}/package_libpng_1_6_7"/>
+        <gzip destfile="${build.dir}/package_libpng_1_6_7.tar.gz" src="${build.dir}/package_libpng_1_6_7.tar"/>
+        <delete file="${build.dir}/package_libpng_1_6_7.tar"/>
+    </target>
+
     <target name="package_atlas_3_10" depends="build">
         <mkdir dir="${build.dir}/package_atlas_3_10"/>
         <copy todir="${build.dir}/package_atlas_3_10">
