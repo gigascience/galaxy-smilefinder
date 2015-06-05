@@ -1,0 +1,77 @@
+<project name="galaxy_genome_diversity" default="" basedir=".">
+    <description>
+        A build file for generating Galaxy packages for individual tools.
+    </description>
+    <!-- Global properties for build -->
+    <property name="build.dir" location="./build"/>
+    <property name="dependencies.dir" location="./dependencies"/>
+    <property name="data.managers.dir" location="./data_managers"/>
+    <property name="datatypes.dir" location="./datatypes"/>
+    <property name="test-data.dir" location="./test-data"/>
+    <property name="tool-data.dir" location="./tool-data"/>
+    <property name="tools.dir" location="./tools"/>
+
+    <target name="init">
+        <!-- Create time stamp -->
+        <tstamp/>
+        <!-- Check build dir -->
+        <available file="./${build.dir}" type="dir" property="build.found"/>
+    </target>
+
+    <target name="build" unless="build.found">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="select_populations" depends="build">
+        <mkdir dir="${build.dir}/select_populations"/>
+        <copy todir="${build.dir}/select_populations">
+            <fileset dir="${tools.dir}/select_populations"/>
+        </copy>
+
+        <tar destfile="${build.dir}/select_populations.tar" basedir="${build.dir}/select_populations"/>
+        <gzip destfile="${build.dir}/select_populations.tar.gz" src="${build.dir}/select_populations.tar"/>
+        <delete file="${build.dir}/select_populations.tar"/>
+    </target>
+
+    <target name="count" depends="build">
+        <mkdir dir="${build.dir}/count"/>
+        <copy todir="${build.dir}/count">
+            <fileset dir="${tools.dir}/count"/>
+        </copy>
+
+        <!-- This tar task is commented out as the HGDP* files are too large -->
+        <!-- so the tarball creation takes a long time - 6 mins -->
+        <!--
+        <tar destfile="${build.dir}/count.tar" basedir="${build.dir}/count"/>
+        <gzip destfile="${build.dir}/count.tar.gz" src="${build.dir}/count.tar"/>
+        <delete file="${build.dir}/count.tar"/>
+        -->
+    </target>
+
+    <target name="smilefinder" depends="build">
+        <mkdir dir="${build.dir}/smilefinder"/>
+        <copy todir="${build.dir}/smilefinder">
+            <fileset dir="${tools.dir}/smilefinder"/>
+        </copy>
+
+        <tar destfile="${build.dir}/smilefinder.tar" basedir="${build.dir}/smilefinder"/>
+        <gzip destfile="${build.dir}/smilefinder.tar.gz" src="${build.dir}/smilefinder.tar"/>
+        <delete file="${build.dir}/smilefinder.tar"/>
+    </target>
+
+    <target name="grapher" depends="build">
+        <mkdir dir="${build.dir}/grapher"/>
+        <copy todir="${build.dir}/grapher">
+            <fileset dir="${tools.dir}/grapher"/>
+        </copy>
+
+        <tar destfile="${build.dir}/grapher.tar" basedir="${build.dir}/grapher"/>
+        <gzip destfile="${build.dir}/grapher.tar.gz" src="${build.dir}/grapher.tar"/>
+        <delete file="${build.dir}/grapher.tar"/>
+    </target>
+
+    <target name="clean" description="clean up">
+        <!-- Delete build directory -->
+        <delete dir="${build.dir}"/>
+    </target>
+</project>
