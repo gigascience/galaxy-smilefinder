@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="numpy" version="1.7.1">
+        <repository  changeset_revision="" name="package_numpy_1_7_1" owner="peterli" toolshed="http://gigatoolshed.net" />
+    </package>
+    <package name="matplotlib" version="1.2">
+        <repository  changeset_revision="" name="package_matplotlib_1_2" owner="peterli" toolshed="http://gigatoolshed.net" />
+    </package>
+</tool_dependency>

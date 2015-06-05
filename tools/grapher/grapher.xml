@@ -1,5 +1,9 @@
 <tool id="grapher" name="grapher" version="0.1" force_history_refresh="True">
     <description>- displays results from Smilefinder</description>
+    <requirements>
+        <requirement type="package" version="1.7.1">numpy</requirement>
+        <requirement type="package" version="1.2">matplotlib</requirement>
+    </requirements>
     <command interpreter="python">
         grapher-cli.py $infile $genename $chromosome $strand $gene_start $gene_end $graph
     </command>
