@@ -1,0 +1,74 @@
+<tool id="smilefinder" name="SmileFinder" version="0.1"
+      force_history_refresh="True">
+    <description>- detect signatures of positive selection in genomes</description>
+    <command interpreter="python">
+        smilefinder.py $heterozygosity $report $SmileFinderCompleteReport $windows $shortest_window $resampling $sensitivity
+    </command>
+    <inputs>
+        <param name="heterozygosity"
+               type="data"
+               format="Table"
+               label="Population information about individuals"/>
+        <param name="windows"
+               type="integer"
+               label="How many sliding windows?"
+               help="Reducing the number of windows enables SmileFinder to run faster"
+               value="30"/>
+        <param name="shortest_window"
+               type="integer"
+               label="Size of shortest window?"
+               value="5"/>
+        <param name="resampling"
+               type="integer"
+               label="How much resampling?"
+               help="Lowering this value allows SmileFinder to run faster"
+               value="1000000"
+               min="0"
+               max="100000000"/>
+        <param name="sensitivity"
+               type="float"
+               label="Sensitivity of the report"
+               help="This threshold is used to create the report file"
+               value="0.01"
+               min="0.0"
+               max="0.5"/>
+    </inputs>
+    <outputs>
+        <data name="SmileFinderCompleteReport"
+              format="tabular"
+              label="SmileFinderCompleteReport">
+        </data>
+        <data name="report"
+              format="tabular"
+              label="report">
+        </data>
+    </outputs>
+    <!--<tests>-->
+    <!--<test>-->
+    <!--</test>-->
+    <!--</tests>-->
+    <help>
+**What it does**
+
+SmileFinder is a tool for detecting signatures of positive selection in
+population data. It has been tested with data from the
+`Human Genome Diversity Project`_ which can be prepared for use using the Count
+tool.
+
+.. _Human Genome Diversity Project: http://www.hagsc.org/hgdp/index.html
+
+-----
+
+SmileFinder will generate two outputs:
+
+1. SmileFinderCompleteTable. This is the most important table, containing all the percentiles calculated at each marker position.
+2. Report file. It filters the CompleteTable according to the Sensitivity, returning the markers with the oddest values. We recommend users to filter the CompleteTable according to their needs. For example, graphing the percentiles values in a region of interest for vizsualizing the behavior of the genetic diversity.
+
+-----
+
+We hope SmileFinder will be able to provide researchers with more powerful
+insights about natural selection. Any questions about the program can be
+addressed to wilfried.guiblet@upr.edu
+    </help>
+</tool>
+
