@@ -22,6 +22,36 @@
         <mkdir dir="${build.dir}"/>
     </target>
 
+    <target name="package_atlas_3_10" depends="build">
+        <mkdir dir="${build.dir}/package_atlas_3_10"/>
+        <copy todir="${build.dir}/package_atlas_3_10">
+            <fileset dir="${dependencies.dir}/package_atlas_3_10"/>
+        </copy>
+        <tar destfile="${build.dir}/package_atlas_3_10.tar" basedir="${build.dir}/package_atlas_3_10"/>
+        <gzip destfile="${build.dir}/package_atlas_3_10.tar.gz" src="${build.dir}/package_atlas_3_10.tar"/>
+        <delete file="${build.dir}/package_atlas_3_10.tar"/>
+    </target>
+
+    <target name="package_numpy_1_7_1" depends="build">
+        <mkdir dir="${build.dir}/package_numpy_1_7_1"/>
+        <copy todir="${build.dir}/package_numpy_1_7_1">
+            <fileset dir="${dependencies.dir}/package_numpy_1_7_1"/>
+        </copy>
+        <tar destfile="${build.dir}/package_numpy_1_7_1.tar" basedir="${build.dir}/package_numpy_1_7_1"/>
+        <gzip destfile="${build.dir}/package_numpy_1_7_1.tar.gz" src="${build.dir}/package_numpy_1_7_1.tar"/>
+        <delete file="${build.dir}/package_numpy_1_7_1.tar"/>
+    </target>
+
+    <target name="package_scipy_0_12" depends="build">
+        <mkdir dir="${build.dir}/package_scipy_0_12"/>
+        <copy todir="${build.dir}/package_scipy_0_12">
+            <fileset dir="${dependencies.dir}/package_scipy_0_12"/>
+        </copy>
+        <tar destfile="${build.dir}/package_scipy_0_12.tar" basedir="${build.dir}/package_scipy_0_12"/>
+        <gzip destfile="${build.dir}/package_scipy_0_12.tar.gz" src="${build.dir}/package_scipy_0_12.tar"/>
+        <delete file="${build.dir}/package_scipy_0_12.tar"/>
+    </target>
+
     <target name="select_populations" depends="build">
         <mkdir dir="${build.dir}/select_populations"/>
         <copy todir="${build.dir}/select_populations">
