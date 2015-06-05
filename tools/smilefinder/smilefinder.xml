@@ -3,6 +3,7 @@
     <description>- detect signatures of positive selection in genomes</description>
     <requirements>
         <requirement type="package" version="1.7.1">numpy</requirement>
+        <requirement type="package" version="0.12">scipy</requirement>
     </requirements>
     <command interpreter="python">
         smilefinder.py $heterozygosity $report $SmileFinderCompleteReport $windows $shortest_window $resampling $sensitivity

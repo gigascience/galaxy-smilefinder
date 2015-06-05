@@ -3,4 +3,7 @@
     <package name="numpy" version="1.7.1">
         <repository  changeset_revision="" name="package_numpy_1_7_1" owner="peterli" toolshed="http://gigatoolshed.net" />
     </package>
+    <package name="scipy" version="0.12">
+        <repository  changeset_revision="" name="package_scipy_0_12" owner="peterli" toolshed="http://gigatoolshed.net" />
+    </package>
 </tool_dependency>
