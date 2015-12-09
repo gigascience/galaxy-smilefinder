@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<repositories description="This is a metapackage, that will install several other tools.">
+    <repository changeset_revision="" name="select_populations" owner="peterli" toolshed="http://gigatoolshed.net" />
+    <repository changeset_revision="" name="count" owner="peterli" toolshed="http://gigatoolshed.net" />
+    <repository changeset_revision="" name="smilefinder" owner="peterli" toolshed="http://gigatoolshed.net" />
+    <repository changeset_revision="" name="grapher" owner="peterli" toolshed="http://gigatoolshed.net" />
+</repositories>
