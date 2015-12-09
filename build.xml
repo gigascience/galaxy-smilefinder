@@ -102,6 +102,16 @@
         <delete file="${build.dir}/package_scipy_0_12.tar"/>
     </target>
 
+    <target name="package_matplotlib_1_2" depends="build">
+        <mkdir dir="${build.dir}/package_matplotlib_1_2"/>
+        <copy todir="${build.dir}/package_matplotlib_1_2">
+            <fileset dir="${dependencies.dir}/package_matplotlib_1_2"/>
+        </copy>
+        <tar destfile="${build.dir}/package_matplotlib_1_2.tar" basedir="${build.dir}/package_matplotlib_1_2"/>
+        <gzip destfile="${build.dir}/package_matplotlib_1_2.tar.gz" src="${build.dir}/package_matplotlib_1_2.tar"/>
+        <delete file="${build.dir}/package_matplotlib_1_2.tar"/>
+    </target>
+
     <target name="select_populations" depends="build">
         <mkdir dir="${build.dir}/select_populations"/>
         <copy todir="${build.dir}/select_populations">
@@ -116,16 +126,18 @@
     <target name="count" depends="build">
         <mkdir dir="${build.dir}/count"/>
         <copy todir="${build.dir}/count">
-            <fileset dir="${tools.dir}/count"/>
+            <fileset dir="${tools.dir}/count">
+                <exclude name="**/*.txt"/>
+            </fileset>
         </copy>
 
-        <!-- This tar task is commented out as the HGDP* files are too large -->
-        <!-- so the tarball creation takes a long time - 6 mins -->
-        <!--
+        <!-- The HGDP* files which the count tool requires are large which -->
+        <!-- means that the tarball creation takes a long time - 6 mins -->
+        <!-- These HGDP* files need to be manually placed into the tool folder -->
+        <!-- in the Galaxy platform -->
         <tar destfile="${build.dir}/count.tar" basedir="${build.dir}/count"/>
         <gzip destfile="${build.dir}/count.tar.gz" src="${build.dir}/count.tar"/>
         <delete file="${build.dir}/count.tar"/>
-        -->
     </target>
 
     <target name="smilefinder" depends="build">
